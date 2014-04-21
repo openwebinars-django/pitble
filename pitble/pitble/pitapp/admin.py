@@ -1,3 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
+from pitble.pitapp.models import Pitble
+
+
+class PitbleAdmin(admin.ModelAdmin):
+    list_display = ('text', 'owner')
+    search_fields = ('text',)
+
+admin.site.register(Pitble, PitbleAdmin)
