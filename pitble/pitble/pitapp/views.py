@@ -11,6 +11,7 @@ def index(request):
 
 # Create your views here.
 def followers(request):
+    user = request.user
     return render_to_response('pitapp/followers.html',
-                              {},
+                              {'followers': user.followers.all()},
                               context_instance=RequestContext(request))
