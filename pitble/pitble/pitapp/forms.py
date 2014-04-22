@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model, authenticate
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.utils.translation import ugettext_lazy as _
 
@@ -41,3 +41,15 @@ class SignInForm(forms.ModelForm):
         model = get_user_model()
         fields = ('username', 'password')
         widgets = {'password': forms.PasswordInput}
+
+    def clean(self):
+        cleaned_data = super(SignInForm, self).clean()
+        self._validate_unique = False
+        username = cleaned_data['username']
+        password = cleaned_data['password']
+        user = authenticate(username=username, password=password)
+        if not user:
+            raise forms.ValidationError(_('Username and password are invalid'))
+        self.user = user
+        return cleaned_data
+    
