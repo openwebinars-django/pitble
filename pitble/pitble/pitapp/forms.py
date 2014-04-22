@@ -1,7 +1,7 @@
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django import forms
-
 from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.utils.translation import ugettext_lazy as _
 
 
 class PitbleUserCreationForm(UserCreationForm):
@@ -29,3 +29,15 @@ class PitbleUserChangeForm(UserChangeForm):
     class Meta:
         model = get_user_model()
         fields = '__all__'
+
+
+class SignInForm(forms.ModelForm):
+
+    remember_me = forms.BooleanField(label=_('Remember me'),
+                                     required=False,
+                                     initial=True)
+
+    class Meta:
+        model = get_user_model()
+        fields = ('username', 'password')
+        widgets = {'password': forms.PasswordInput}
