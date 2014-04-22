@@ -1,5 +1,7 @@
 {% extends "pitapp/base.html" %}
 
+{% load bootstrap3 %}
+
 {% block content %}
     <div class="row ">
         <div class="col-lg-6 col-md-6">
@@ -12,7 +14,7 @@
             <h1>Sign Up</h1>
             <form role="form" id="formSignIn" action="" method="POST">
                 {% csrf_token %}
-                {{ form }}
+                {% bootstrap_form form %}
                 <button type="submit" class="btn btn-default">Sign In</button>
             </form>
         </div>
