@@ -10,6 +10,7 @@ from pitble.pitapp.forms import PitbleUserChangeForm, PitbleUserCreationForm
 class PitbleUserAdmin(UserAdmin):
     add_form = PitbleUserCreationForm
     form = PitbleUserChangeForm
+    filter_horizontal = UserAdmin.filter_horizontal + ('followings',)
     fieldsets = (
         (None, {'fields': ('username', 'password')}),
         (_('Personal info'), {'fields': ('first_name', 'last_name', 'email')}),

@@ -30,6 +30,10 @@ class PitbleUserChangeForm(UserChangeForm):
         model = get_user_model()
         fields = '__all__'
 
+    def __init__(self, *args, **kwargs):
+        super(PitbleUserChangeForm, self).__init__(*args, **kwargs)
+        self.fields['followings'].queryset = self.fields['followings'].queryset.exclude(pk=self.instance.pk)
+
 
 class SignInForm(forms.ModelForm):
 
