@@ -16,9 +16,12 @@ def index(request):
 
 
 def followers(request):
+    import ipdb; ipdb.set_trace()
+    x = 3 / 0
     user = request.user
+    followers = user.followers.all()
     return render_to_response('pitapp/followers.html',
-                              {'followers': user.followers.all()},
+                              {'followers': followers},
                               context_instance=RequestContext(request))
 
 
