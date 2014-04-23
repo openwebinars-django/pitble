@@ -56,4 +56,3 @@ class SignInForm(forms.ModelForm):
             raise forms.ValidationError(_('Username and password are invalid'))
         self.user = user
         return cleaned_data
-    

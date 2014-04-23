@@ -73,6 +73,7 @@
         {% bootstrap_messages %}
         {% block content %}
         {% endblock %}
+        Por favor contacta con alguno de nuestros administradores en caso de duda: {% for admin in admins %} {{ admin.email }} {% endfor %}
     </div> <!-- /container -->
 
     {% block js %}
