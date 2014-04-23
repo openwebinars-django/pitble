@@ -83,3 +83,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'pitapp.User'
+
+LOGIN_URL = '/sign-in/'
