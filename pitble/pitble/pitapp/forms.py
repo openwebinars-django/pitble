@@ -73,6 +73,6 @@ class SignUpForm(forms.ModelForm):
         password2 = cleaned_data['validate_password']
 
         if password1 != password2:
-            raise forms.ValidationError(_('Passwords inputs are differents'))
+            raise forms.ValidationError(_('Passwords are different'))
 
         return cleaned_data
