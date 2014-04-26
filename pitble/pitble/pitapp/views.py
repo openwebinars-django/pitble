@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
@@ -79,3 +79,11 @@ def sign_up(request):
     return render_to_response('pitapp/sign-up.html',
                               {'form': form},
                               context_instance=RequestContext(request))
+
+
+@login_required
+def sign_out(request):
+    user = request.user
+    logout(request)
+    messages.add_message(request, messages.INFO, _('Goodbye %s' % user.username))
+    return HttpResponseRedirect(reverse('index'))
