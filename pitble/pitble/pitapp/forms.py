@@ -56,3 +56,23 @@ class SignInForm(forms.ModelForm):
             raise forms.ValidationError(_('Username and password are invalid'))
         self.user = user
         return cleaned_data
+
+
+class SignUpForm(forms.ModelForm):
+
+    validate_password = forms.CharField(label=_("Repeat Password"), widget=forms.PasswordInput)
+
+    class Meta:
+        model = get_user_model()
+        fields = ('username', 'password')
+        widgets = {'password': forms.PasswordInput}
+
+    def clean(self):
+        cleaned_data = super(SignUpForm, self).clean()
+        password1 = cleaned_data['password']
+        password2 = cleaned_data['validate_password']
+
+        if password1 != password2:
+            raise forms.ValidationError(_('Passwords inputs are differents'))
+
+        return cleaned_data

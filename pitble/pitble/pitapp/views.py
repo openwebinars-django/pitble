@@ -7,7 +7,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.utils.translation import ugettext as _
 
-from pitble.pitapp.forms import SignInForm
+from pitble.pitapp.forms import SignInForm, SignUpForm
 
 
 def index(request):
@@ -65,4 +65,17 @@ def sign_in(request):
 
 
 def sign_up(request):
-    raise NotImplementedError
+    data = None
+    if request.method == 'POST':
+        data = request.POST
+    form = SignUpForm(data=data)
+    if form.is_valid():
+        user = form.save(commit=False)
+        user.set_password(user.password)
+        user.save()
+        if user.pk is not None:
+            messages.add_message(request, messages.INFO, _('Success create account %s' % user.username))
+            return HttpResponseRedirect(reverse('index'))
+    return render_to_response('pitapp/sign-up.html',
+                              {'form': form},
+                              context_instance=RequestContext(request))
