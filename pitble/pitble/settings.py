@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Django settings for pitble project.
 
@@ -47,6 +48,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+    'pitble.pitapp.middleware.LocaleMiddleware',
 )
 
 ROOT_URLCONF = 'pitble.urls'
@@ -69,6 +72,11 @@ DATABASES = {
 
 LANGUAGE_CODE = 'es-ES'
 
+LANGUAGES = (
+    ('es', u'Español'),
+    ('en', 'English'),
+)
+
 TIME_ZONE = 'Europe/Madrid'
 
 USE_I18N = True
@@ -82,6 +90,19 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
 AUTH_USER_MODEL = 'pitapp.User'
 
 LOGIN_URL = '/sign-in/'
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.core.context_processors.tz',
+#    'django.core.context_processors.request',
+    'django.contrib.messages.context_processors.messages',
+    'pitble.pitapp.context_processors.i18n'
+)

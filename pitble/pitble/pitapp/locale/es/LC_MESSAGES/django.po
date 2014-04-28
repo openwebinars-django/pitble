@@ -1,0 +1,108 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-04-28 20:19+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: admin.py:16
+msgid "Personal info"
+msgstr ""
+
+#: admin.py:17
+msgid "Permissions"
+msgstr ""
+
+#: admin.py:19
+msgid "Important dates"
+msgstr ""
+
+#: admin.py:20
+msgid "Pitble fields"
+msgstr "Campos de Pitble"
+
+#: forms.py:40
+msgid "Remember me"
+msgstr "Recordarme"
+
+#: forms.py:56
+msgid "Username and password are invalid"
+msgstr "Usuario y contraseña son invalidad"
+
+#: forms.py:63
+msgid "Repeat Password"
+msgstr "Repetir contraseña"
+
+#: forms.py:76
+msgid "Passwords are different"
+msgstr "Las contraseñas son diferentes"
+
+#: models.py:12 templates/pitapp/base.html:54
+msgid "Followings"
+msgstr "Siguiendo"
+
+#: models.py:23
+msgid "Text"
+msgstr "Texto"
+
+#: models.py:24
+msgid "Owner"
+msgstr "Propietario"
+
+#: views.py:60
+#, python-format
+msgid "Welcome %s"
+msgstr "Bienvienido %s"
+
+#: views.py:75
+#, python-format
+msgid "Success create account %s"
+msgstr "Cuenta de %s creada satisfactoriamente"
+
+#: views.py:86
+#, python-format
+msgid "Goodbye %s"
+msgstr "Adios %s"
+
+#: templates/pitapp/base.html:53
+msgid "Followers"
+msgstr "Seguidores"
+
+#: templates/pitapp/base.html:55
+msgid "Create pitble"
+msgstr "Crear pitble"
+
+#: templates/pitapp/base.html:56
+msgid "My pitbles"
+msgstr "Mis pitbles"
+
+#: templates/pitapp/base.html:57
+msgid "Sign out"
+msgstr "Cerrar sesión"
+
+#: templates/pitapp/base.html:59 templates/pitapp/sign-in.html:5
+#: templates/pitapp/sign-in.html.py:15 templates/pitapp/sign-in.html:17
+msgid "Sign in"
+msgstr "Autenticarme"
+
+#: templates/pitapp/base.html:60 templates/pitapp/sign-up.html:5
+#: templates/pitapp/sign-up.html.py:15 templates/pitapp/sign-up.html:17
+msgid "Sign up"
+msgstr "Registrarme"
+
+#: templates/pitapp/base.html:63
+msgid "Set language"
+msgstr "Establecer idioma"
