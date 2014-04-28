@@ -3,8 +3,8 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import ugettext_lazy as _
 
-from pitble.pitapp.models import Pitble
-from pitble.pitapp.forms import PitbleUserChangeForm, PitbleUserCreationForm
+from pitble.models import Pitble
+from pitble.forms import PitbleUserChangeForm, PitbleUserCreationForm
 
 
 class PitbleUserAdmin(UserAdmin):

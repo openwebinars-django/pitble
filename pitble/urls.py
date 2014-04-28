@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, url
 
 
-urlpatterns = patterns('pitble.pitapp.views',
+urlpatterns = patterns('pitble.views',
     url(r'^$', 'index', name='index'),
     url(r'^sign-in/$', 'sign_in', name='sign_in'),
     url(r'^sign-up/$', 'sign_up', name='sign_up'),

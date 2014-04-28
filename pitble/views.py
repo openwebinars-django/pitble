@@ -7,11 +7,11 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.utils.translation import ugettext as _
 
-from pitble.pitapp.forms import SignInForm, SignUpForm
+from pitble.forms import SignInForm, SignUpForm
 
 
 def index(request):
-    return render_to_response('pitapp/index.html',
+    return render_to_response('pitble/index.html',
                               {},
                               context_instance=RequestContext(request))
 
@@ -20,7 +20,7 @@ def index(request):
 def followers(request):
     user = request.user
     followers = user.followers.all()
-    return render_to_response('pitapp/followers.html',
+    return render_to_response('pitble/followers.html',
                               {'followers': followers},
                               context_instance=RequestContext(request))
 
@@ -59,7 +59,7 @@ def sign_in(request):
         login(request, user)
         messages.add_message(request, messages.INFO, _('Welcome %s' % user.username))
         return HttpResponseRedirect(reverse('index'))
-    return render_to_response('pitapp/sign-in.html',
+    return render_to_response('pitble/sign-in.html',
                               {'form': form},
                               context_instance=RequestContext(request))
 
@@ -74,7 +74,7 @@ def sign_up(request):
         login(request, user)
         messages.add_message(request, messages.INFO, _('Success create account %s' % user.username))
         return HttpResponseRedirect(reverse('index'))
-    return render_to_response('pitapp/sign-up.html',
+    return render_to_response('pitble/sign-up.html',
                               {'form': form},
                               context_instance=RequestContext(request))
 
