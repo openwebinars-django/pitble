@@ -5,17 +5,19 @@
 {% block content %}
     <div class="row ">
         <div class="col-lg-6 col-md-6">
-        <h1>Minions ipsum</h1>
-        <p>
-        Minions ipsum ti aamoo! Voluptate velit aaaaaah consequat. Ex exercitation laboris jeje aliqua exercitation ex tatata bala tu nostrud. Jiji tempor sed bananaaaa aaaaaah enim minim belloo! Enim. Cillum bee do bee do bee do aliqua nostrud duis baboiii qui baboiii. Officia elit enim incididunt et daa incididunt aute. Para tú magna chasy reprehenderit exercitation voluptate commodo minim belloo! Officia hana dul sae.
-        </p>
+            <h1>{% block title %} Minions ipsum {% endblock %}</h1>
+            {% block text %}
+            <p>
+            Minions ipsum ti aamoo! Voluptate velit aaaaaah consequat. Ex exercitation laboris jeje aliqua exercitation ex tatata bala tu nostrud. Jiji tempor sed bananaaaa aaaaaah enim minim belloo! Enim. Cillum bee do bee do bee do aliqua nostrud duis baboiii qui baboiii. Officia elit enim incididunt et daa incididunt aute. Para tú magna chasy reprehenderit exercitation voluptate commodo minim belloo! Officia hana dul sae.
+            </p>
+            {% endblock %}
         </div>
         <div class="col-lg-6 col-md-6">
-            <h1>{% trans "Sign in" %}</h1>
+            <h1>{% block titleForm %} {% trans "Sign in" %} {% endblock %}</h1>
             <form role="form" id="formSignIn" action="" method="POST">
                 {% csrf_token %}
                 {% bootstrap_form form %}
-                <button type="submit" class="btn btn-default">Sign In</button>
+                <button type="submit" class="btn btn-default">{% block textButton %} {% trans 'Sign In' %} {% endblock %}</button>
             </form>
         </div>
     </div>
