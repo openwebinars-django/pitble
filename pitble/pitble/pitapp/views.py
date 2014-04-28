@@ -70,12 +70,10 @@ def sign_up(request):
         data = request.POST
     form = SignUpForm(data=data)
     if form.is_valid():
-        user = form.save(commit=False)
-        user.set_password(user.password)
-        user.save()
-        if user.pk is not None:
-            messages.add_message(request, messages.INFO, _('Success create account %s' % user.username))
-            return HttpResponseRedirect(reverse('index'))
+        user = form.save()
+        login(request, user)
+        messages.add_message(request, messages.INFO, _('Success create account %s' % user.username))
+        return HttpResponseRedirect(reverse('index'))
     return render_to_response('pitapp/sign-up.html',
                               {'form': form},
                               context_instance=RequestContext(request))

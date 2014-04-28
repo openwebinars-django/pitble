@@ -1,8 +1,10 @@
-{% extends "pitapp/sign-in.html" %}
+{% extends "pitapp/base_form.html" %}
 
 {% load i18n %}
 
-{% block title %} Minions ipsum {% endblock %}
+{% block title %}{{ block.super }} - {% trans "Sign up" %}{% endblock %}
+
+{% block content-title %} Minions ipsum {% endblock %}
 
 {% block text %}
     <p>
@@ -10,6 +12,6 @@
     </p>
 {% endblock %}
 
-{% block titleForm %} {% trans 'Sign Up' %} {% endblock %}
+{% block titleForm %} {% trans 'Sign up' %} {% endblock %}
 
-{% block textButton %} {% trans 'Sign Up' %} {% endblock %}
+{% block textButton %} {% trans 'Sign up' %} {% endblock %}

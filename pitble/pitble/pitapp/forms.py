@@ -76,3 +76,11 @@ class SignUpForm(forms.ModelForm):
             raise forms.ValidationError(_('Passwords are different'))
 
         return cleaned_data
+
+    def save(self, commit=True):
+        user = super(SignUpForm, self).save(commit=False)
+        clean_password = user.password
+        user.set_password(user.password)
+        if commit:
+            user.save()
+        return authenticate(username=user.username, password=clean_password)
