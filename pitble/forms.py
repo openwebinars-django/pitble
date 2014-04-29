@@ -28,7 +28,6 @@ class PitbleUserChangeForm(UserChangeForm):
 
     class Meta:
         model = get_user_model()
-        fields = '__all__'
 
     def __init__(self, *args, **kwargs):
         super(PitbleUserChangeForm, self).__init__(*args, **kwargs)
