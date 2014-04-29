@@ -1,0 +1,5 @@
+include README.rst
+include CHANGES.rst
+recursive-include pitble/templates *
+recursive-include pitble/static *
+recursive-include pitble/locale *
