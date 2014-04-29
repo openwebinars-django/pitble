@@ -7,6 +7,9 @@ Pitble
 Information
 ===========
 
+.. image:: https://travis-ci.org/openwebinars-django/pitble.svg
+    :target: https://travis-ci.org/openwebinars-django/pitble
+
 .. image:: https://badge.fury.io/py/pitble.png
     :target: https://badge.fury.io/py/pitble
 

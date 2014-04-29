@@ -1,0 +1,11 @@
+language: python
+
+install:
+  - pip install -q --use-mirrors tox==1.7.1
+
+script:
+  - tox
+
+notifications:
+  email:
+    - goinnn@gmail.com
