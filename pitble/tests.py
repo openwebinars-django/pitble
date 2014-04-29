@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 from django.test.client import Client
@@ -7,6 +8,23 @@ class PitbleTestCase(TestCase):
 
     def setUp(self):
         self.client = Client()
+
+    def create_user(self, username, password):
+        User = get_user_model()
+        user, is_created = User.objects.get_or_create(username=username)
+        if is_created:
+            user.set_password(password)
+            user.save()
+        return user
+
+    def delete_user(self, username):
+        User = get_user_model()
+        user = User.objects.get(username=username)
+        user.delete()
+
+    def login(self, username, password):
+        is_login = self.client.login(username=username, password=password)
+        self.assertEqual(is_login, True)
 
     def test_get_200(self):
         # index view
@@ -28,3 +46,14 @@ class PitbleTestCase(TestCase):
         followers_url = reverse('followers')
         followers_res = self.client.get(followers_url)
         self.assertEqual(followers_res.status_code, 302)
+
+    def test_get_200_with_login(self):
+        User = get_user_model()
+        username = password = 'user1'
+        self.create_user(username, password)
+        self.login(username, password)
+        followers_url = reverse('followers')
+        followers_res = self.client.get(followers_url)
+        self.assertEqual(followers_res.status_code, 200)
+        self.delete_user(username)
+        self.assertEqual(User.objects.filter(username=username).count(), 0)
