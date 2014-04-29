@@ -106,3 +106,5 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.messages.context_processors.messages',
     'pitble.context_processors.i18n'
 )
+
+TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'example', 'templates'),)
