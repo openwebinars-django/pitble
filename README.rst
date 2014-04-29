@@ -10,6 +10,11 @@ Information
 .. image:: https://travis-ci.org/openwebinars-django/pitble.svg
     :target: https://travis-ci.org/openwebinars-django/pitble
 
+
+.. image:: https://coveralls.io/repos/openwebinars-django/pitble/badge.png
+  :target: https://coveralls.io/r/openwebinars-django/pitble
+
+
 .. image:: https://badge.fury.io/py/pitble.png
     :target: https://badge.fury.io/py/pitble
 
