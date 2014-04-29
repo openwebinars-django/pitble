@@ -57,3 +57,16 @@ class PitbleTestCase(TestCase):
         self.assertEqual(followers_res.status_code, 200)
         self.delete_user(username)
         self.assertEqual(User.objects.filter(username=username).count(), 0)
+
+    def test_followers_followings(self):
+        user1 = self.create_user('user1', 'user1')
+        user2 = self.create_user('user2', 'user3')
+        user3 = self.create_user('user3', 'user3')
+        user1.followings.add(user2)
+        user3.followings.add(user2)
+        user2_followers = [user.username
+                           for user in user2.followers.all().order_by('pk')]
+        self.assertEqual(user2_followers, ['user1', 'user3'])
+        self.delete_user('user1')
+        self.delete_user('user2')
+        self.delete_user('user3')
