@@ -11,7 +11,7 @@ def read(*rnames):
 
 setup(
     name="pitble",
-    version="0.0.1",
+    version="0.0.2",
     author="Pablo Martin, Raul Sanchez, Alberto Vara",
     author_email="goinnn@gmail.com",
     description="Django microblog",
